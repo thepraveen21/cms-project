@@ -6,6 +6,10 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\IndustryController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\OfficerController;
+use App\Http\Controllers\NewsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +52,34 @@ Route::prefix('careers')->group(function () {
     Route::put('/{id}', [CareerController::class, 'update']);      // UPDATE career
     Route::delete('/{id}', [CareerController::class, 'destroy']);  // DELETE career
 });
+
+// Partner Routes (About Section)
+Route::prefix('partners')->group(function () {
+    Route::get('/', [PartnerController::class, 'index']);          // GET all partners
+    Route::post('/', [PartnerController::class, 'store']);         // CREATE partner
+    Route::get('/{id}', [PartnerController::class, 'show']);       // GET single partner
+    Route::put('/{id}', [PartnerController::class, 'update']);     // UPDATE partner
+    Route::delete('/{id}', [PartnerController::class, 'destroy']); // DELETE partner
+});
+
+// Officer Routes (About Section)
+Route::prefix('officers')->group(function () {
+    Route::get('/', [OfficerController::class, 'index']);          // GET all officers
+    Route::post('/', [OfficerController::class, 'store']);         // CREATE officer
+    Route::get('/{id}', [OfficerController::class, 'show']);       // GET single officer
+    Route::put('/{id}', [OfficerController::class, 'update']);     // UPDATE officer
+    Route::delete('/{id}', [OfficerController::class, 'destroy']); // DELETE officer
+});
+
+// News Routes (About Section)
+Route::prefix('news')->group(function () {
+    Route::get('/', [NewsController::class, 'index']);             // GET all news
+    Route::post('/', [NewsController::class, 'store']);            // CREATE news
+    Route::get('/{id}', [NewsController::class, 'show']);          // GET single news
+    Route::put('/{id}', [NewsController::class, 'update']);        // UPDATE news
+    Route::delete('/{id}', [NewsController::class, 'destroy']);    // DELETE news
+});
+
 // Alternative: Using apiResource (shorthand for all above routes)
 // Route::apiResource('sliders', SliderController::class);
 // Route::apiResource('services', ServiceController::class);
