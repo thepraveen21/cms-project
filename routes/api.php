@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\IndustryController;
+use App\Http\Controllers\CareerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,14 @@ Route::prefix('industries')->group(function () {
     Route::delete('/{id}', [IndustryController::class, 'destroy']);// DELETE industry
 });
 
+// Career Routes
+Route::prefix('careers')->group(function () {
+    Route::get('/', [CareerController::class, 'index']);           // GET all careers
+    Route::post('/', [CareerController::class, 'store']);          // CREATE career
+    Route::get('/{id}', [CareerController::class, 'show']);        // GET single career
+    Route::put('/{id}', [CareerController::class, 'update']);      // UPDATE career
+    Route::delete('/{id}', [CareerController::class, 'destroy']);  // DELETE career
+});
 // Alternative: Using apiResource (shorthand for all above routes)
 // Route::apiResource('sliders', SliderController::class);
 // Route::apiResource('services', ServiceController::class);
