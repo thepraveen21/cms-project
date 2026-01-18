@@ -1,3 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styles for registration page */
+.form-input-icon {
+    @apply absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none;
+}
+
+.gradient-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-btn:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Form animations */
+.form-group {
+    @apply transition-all duration-300;
+}
+
+.form-group:focus-within {
+    @apply transform -translate-y-0.5;
+}
+
+/* Dark mode overrides */
+.dark .form-input {
+    @apply bg-gray-800 border-gray-700 text-white;
+}
+
+.dark .form-input:focus {
+    @apply ring-2 ring-indigo-500 border-indigo-500;
+}
+
+/* Loading spinner */
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
