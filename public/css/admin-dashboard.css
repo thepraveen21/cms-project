@@ -1,0 +1,199 @@
+/* Admin Dashboard Styles */
+
+/* Card Styles */
+.dashboard-card {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dashboard-card:hover::before {
+    opacity: 1;
+}
+
+/* Icon Animation */
+.icon-container {
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover .icon-container {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Number Count Animation */
+.stat-number {
+    position: relative;
+}
+
+.stat-number::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.dashboard-card:hover .stat-number::after {
+    width: 100%;
+}
+
+/* Link Arrow Animation */
+.link-arrow {
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover .link-arrow {
+    transform: translateX(4px);
+}
+
+/* Summary Section */
+.summary-section {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    position: relative;
+}
+
+.summary-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+    background-size: cover;
+    opacity: 0.5;
+}
+
+/* Status Indicator */
+.status-indicator {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+    }
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+    position: relative;
+}
+
+.gradient-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.dashboard-card:hover .gradient-overlay::after {
+    opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .dashboard-card {
+        margin-bottom: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .dashboard-card {
+        min-height: 220px;
+    }
+}
+
+/* Loading Animation */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Badge Styles */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+/* Scrollbar Styling */
+.dashboard-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dashboard-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.dashboard-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.dashboard-container::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Print Styles */
+@media print {
+    .dashboard-card {
+        break-inside: avoid;
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+    
+    .summary-section {
+        background: none !important;
+        border: 1px solid #ddd !important;
+    }
+}

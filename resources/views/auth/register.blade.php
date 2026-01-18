@@ -1,4 +1,12 @@
 <x-guest-layout>
+    <div class="mb-4 text-center">
+        <h2 class="text-3xl font-extrabold text-gray-900">
+            Create Your Account
+        </h2>
+        <p class="text-sm text-gray-500">
+            Join us to start your journey
+        </p>
+    </div>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
